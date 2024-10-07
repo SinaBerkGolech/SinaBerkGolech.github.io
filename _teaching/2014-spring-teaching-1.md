@@ -1,20 +1,13 @@
 ---
-title: "Teaching experience 1"
+title: "Nesin Villages Algebra and Computer Programming"
 collection: teaching
-type: "Undergraduate course"
-permalink: /teaching/2014-spring-teaching-1
-venue: "University 1, Department"
-date: 2014-01-01
-location: "City, Country"
+type: "High school course"
+permalink: /teaching/2021-summer-teaching
+venue: "Nesin Villages Algebra and Computer Programming"
+date: 2021-07-30
+location: "Izmir, Turkiye"
 ---
 
-This is a description of a teaching experience. You can use markdown like any other post.
-
-Heading 1
+2 Week Course
 ======
-
-Heading 2
-======
-
-Heading 3
-======
+Every summer Nesin Villages organizes this summer school to teach high school students about algebra and computer programming with DrRacket programming language.

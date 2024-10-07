@@ -20,8 +20,6 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
-  - title: "CV"
+  - title: "CV/Resume"
     url: /cv/
     
-  - title: "Guide"
-    url: /markdown/
