@@ -20,6 +20,8 @@ main:
   - title: "Blog Posts"
     url: /year-archive/
     
-  - title: "CV/Resume"
+  - title: "CV"
     url: /cv/
     
+  - title: "Resume"
+    url: /SinaBerkGolech_CV.pdf
