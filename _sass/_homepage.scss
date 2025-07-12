@@ -1,0 +1,273 @@
+/* ==========================================================================
+   Homepage Styles
+   ========================================================================== */
+
+.splash {
+  .page__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+  }
+}
+
+/* Feature wrapper for grid layouts */
+.feature__wrapper {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+  
+  @media (max-width: $medium) {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+.feature__item {
+  .archive__item {
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    padding: 1.5rem;
+    transition: all 0.3s ease-in-out;
+    background: var(--bg-color);
+    
+    &:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-color: var(--link-color);
+    }
+    
+    h3 {
+      margin-top: 0;
+      color: var(--link-color);
+      font-size: 1.25rem;
+    }
+    
+    p {
+      margin-bottom: 0;
+      color: var(--text-color);
+    }
+  }
+  
+  h4 {
+    margin-top: 0;
+    color: var(--link-color);
+    font-size: 1.1rem;
+  }
+  
+  p {
+    margin-bottom: 1rem;
+  }
+}
+
+/* Enhanced notice styles for homepage */
+.notice--info,
+.notice--success {
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin: 1.5rem 0;
+  border-left: 4px solid;
+  transition: all 0.3s ease-in-out;
+  
+  &:hover {
+    transform: translateX(4px);
+  }
+  
+  h4 {
+    margin-top: 0;
+    margin-bottom: 0.5rem;
+    
+    a {
+      color: inherit;
+      text-decoration: none;
+      
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  
+  p {
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  strong {
+    color: var(--link-color);
+  }
+}
+
+/* Label styles for skills and tags */
+.label {
+  display: inline-block;
+  padding: 0.25rem 0.75rem;
+  margin: 0.25rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: scale(1.05);
+  }
+  
+  &--primary {
+    background-color: var(--link-color);
+    color: white;
+  }
+  
+  &--info {
+    background-color: #17a2b8;
+    color: white;
+  }
+  
+  &--success {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  &--warning {
+    background-color: #ffc107;
+    color: #212529;
+  }
+  
+  &--danger {
+    background-color: #dc3545;
+    color: white;
+  }
+}
+
+/* Button styles for homepage */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s ease-in-out;
+  border: 2px solid transparent;
+  
+  &:hover {
+    transform: translateY(-1px);
+    text-decoration: none;
+  }
+  
+  &--primary {
+    background-color: var(--link-color);
+    color: white;
+    
+    &:hover {
+      background-color: var(--link-color-hover);
+      color: white;
+    }
+  }
+  
+  &--outline {
+    background-color: transparent;
+    color: var(--link-color);
+    border-color: var(--link-color);
+    
+    &:hover {
+      background-color: var(--link-color);
+      color: white;
+    }
+  }
+}
+
+/* Academic profile section */
+.academic-profile {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 2rem;
+  margin: 2rem 0;
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    
+    li {
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border-color);
+      
+      &:last-child {
+        border-bottom: none;
+      }
+      
+      strong {
+        color: var(--link-color);
+      }
+      
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+        
+        &:hover {
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+
+/* Hero section enhancements */
+.page__hero {
+  .page__hero-image {
+    filter: brightness(0.7);
+  }
+  
+  .page__hero-caption {
+    font-size: 0.9rem;
+    opacity: 0.8;
+  }
+}
+
+/* Responsive improvements */
+@media (max-width: $medium) {
+  .splash .page__content {
+    padding: 1rem;
+  }
+  
+  .feature__wrapper {
+    gap: 1rem;
+  }
+  
+  .feature__item .archive__item {
+    padding: 1rem;
+  }
+  
+  .notice--info,
+  .notice--success {
+    padding: 1rem;
+  }
+  
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* Dark theme adjustments */
+[data-theme="dark"] {
+  .feature__item .archive__item {
+    background: var(--masthead-bg-color);
+    border-color: var(--border-color);
+    
+    &:hover {
+      border-color: var(--link-color);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    }
+  }
+  
+  .academic-profile {
+    background: var(--masthead-bg-color);
+    border-color: var(--border-color);
+  }
+} 

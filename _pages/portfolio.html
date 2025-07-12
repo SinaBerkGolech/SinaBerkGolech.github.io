@@ -1,14 +1,76 @@
 ---
-layout: archive
+layout: single
 title: "Portfolio"
 permalink: /portfolio/
 author_profile: true
 ---
 
-{% include base_path %}
+<h1>Portfolio</h1>
+<p>Explore selected research, software, and data science projects. For more, see my <a href="https://github.com/SinaBerkGolech" target="_blank">GitHub</a>.</p>
 
+<div class="portfolio-grid">
+  {% for post in site.portfolio %}
+    <div class="portfolio-card">
+      <h3><a href="{{ post.external_url | default: post.url }}" target="_blank">{{ post.title }}</a></h3>
+      {% if post.teaser %}<img src="{{ post.teaser }}" alt="{{ post.title }}" class="portfolio-img" />{% endif %}
+      <p>{{ post.excerpt | strip_html | truncate: 120 }}</p>
+      {% if post.tags %}
+        <div class="portfolio-tags">
+          {% for tag in post.tags %}<span class="label label--info">{{ tag }}</span>{% endfor %}
+        </div>
+      {% endif %}
+      <a href="{{ post.external_url | default: post.url }}" class="btn btn--primary" target="_blank">View Project</a>
+    </div>
+  {% endfor %}
+</div>
 
-{% for post in site.portfolio %}
-  {% include archive-single.html %}
-{% endfor %}
+<style>
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+.portfolio-card {
+  background: var(--bg-color);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.portfolio-card:hover {
+  box-shadow: 0 6px 24px rgba(0,0,0,0.10);
+  transform: translateY(-4px) scale(1.02);
+}
+.portfolio-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-size: 1.2rem;
+}
+.portfolio-card .portfolio-img {
+  width: 100%;
+  max-height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+.portfolio-tags {
+  margin: 0.5rem 0 1rem 0;
+}
+.portfolio-tags .label {
+  margin-right: 0.25rem;
+}
+.btn {
+  margin-top: auto;
+}
+@media (max-width: 700px) {
+  .portfolio-grid {
+    grid-template-columns: 1fr;
+  }
+}
+</style>
 

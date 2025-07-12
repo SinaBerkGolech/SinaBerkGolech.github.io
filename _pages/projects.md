@@ -8,13 +8,14 @@ author_profile: true
 
 Here you'll find an overview of my current and past research projects in bioinformatics, computer vision, and computational biology.
 
-{% raw %}
 {% assign projects = site.projects | sort: 'date' | reverse %}
 {% for project in projects %}
   {% if project.featured %}
     {% include archive-single-project.html %}
   {% endif %}
 {% endfor %}
+
+---
 
 ## All Projects
 
@@ -23,7 +24,8 @@ Here you'll find an overview of my current and past research projects in bioinfo
     {% include archive-single-project.html %}
   {% endunless %}
 {% endfor %}
-{% endraw %}
+
+---
 
 ## Research Areas
 

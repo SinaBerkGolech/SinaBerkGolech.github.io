@@ -6,44 +6,44 @@ author_profile: true
 
 ## Technical Skills
 
-<div class="skills-section">
 ### Programming Languages
-{% raw %}
+<ul class="skill-list">
 {% for skill in site.skills.programming_languages %}
-- **{{ skill }}**: Advanced proficiency in development and analysis
+  <li><span class="label label--primary">{{ skill }}</span> Advanced proficiency in development and analysis</li>
 {% endfor %}
-{% endraw %}
+</ul>
 
 ### Frameworks & Libraries
-{% raw %}
+<ul class="skill-list">
 {% for skill in site.skills.frameworks_libraries %}
-- **{{ skill }}**: Extensive experience in research applications
+  <li><span class="label label--info">{{ skill }}</span> Extensive experience in research applications</li>
 {% endfor %}
-{% endraw %}
+</ul>
 
 ### Tools & Platforms
-{% raw %}
+<ul class="skill-list">
 {% for skill in site.skills.tools_platforms %}
-- **{{ skill }}**: Proficient in development and deployment
+  <li><span class="label label--success">{{ skill }}</span> Proficient in development and deployment</li>
 {% endfor %}
-{% endraw %}
-</div>
+</ul>
 
 ## Research Areas
 
-<div class="research-areas">
-{% raw %}
+<div class="feature__wrapper">
 {% for area in site.skills.research_areas %}
-<div class="research-area">
-<h4>{{ area }}</h4>
-<ul>
-<li>Advanced methodologies and applications</li>
-<li>Data analysis and interpretation</li>
-<li>Research design and implementation</li>
-</ul>
-</div>
+  <div class="feature__item">
+    <div class="archive__item">
+      <div class="archive__item-body">
+        <h4>{{ area }}</h4>
+        <ul>
+          <li>Advanced methodologies and applications</li>
+          <li>Data analysis and interpretation</li>
+          <li>Research design and implementation</li>
+        </ul>
+      </div>
+    </div>
+  </div>
 {% endfor %}
-{% endraw %}
 </div>
 
 ## Academic Competencies
