@@ -5,10 +5,16 @@
 .theme-toggle {
   display: flex;
   align-items: center;
-  margin-left: 1rem;
+  margin-left: auto; /* Push to the right */
+  margin-right: 3rem; /* Space for greedy nav button */
+  z-index: 101; /* Higher than greedy nav button */
   
   @media (max-width: $large) {
-    margin-left: 0.5rem;
+    margin-right: 2.5rem;
+  }
+  
+  @media (max-width: $medium) {
+    margin-right: 2rem;
   }
 }
 
@@ -20,6 +26,11 @@
   border-radius: 50%;
   transition: all 0.2s ease-in-out;
   color: var(--masthead-link-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2.5rem;
+  height: 2.5rem;
   
   &:hover {
     background-color: var(--border-color);
@@ -30,11 +41,17 @@
     outline: 2px solid var(--link-color);
     outline-offset: 2px;
   }
+  
+  &:active {
+    transform: scale(0.95);
+  }
 }
 
 .theme-toggle__icon {
   display: block;
   transition: all 0.3s ease-in-out;
+  width: 20px;
+  height: 20px;
   
   &--sun {
     opacity: 1;
@@ -56,6 +73,16 @@
   &--moon {
     opacity: 1;
     transform: rotate(0deg);
+  }
+}
+
+/* Ensure theme toggle is visible in mobile navigation */
+@media (max-width: $medium) {
+  .greedy-nav {
+    .theme-toggle {
+      position: relative;
+      margin-right: 3rem;
+    }
   }
 }
 

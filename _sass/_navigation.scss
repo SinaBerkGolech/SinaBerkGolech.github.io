@@ -200,6 +200,11 @@
     color: #fff;
     cursor: pointer;
     z-index: 100;
+    
+    /* Ensure it doesn't overlap with theme toggle */
+    @media (max-width: $medium) {
+      right: 0;
+    }
   }
 
   .visible-links {

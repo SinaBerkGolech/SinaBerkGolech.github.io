@@ -67,7 +67,9 @@
   .theme-toggle {
     display: flex;
     align-items: center;
-    margin-left: 1rem;
+    margin-left: auto;
+    margin-right: 3rem;
+    z-index: 101;
   }
   .theme-toggle__button {
     background: none;
@@ -77,6 +79,11 @@
     border-radius: 50%;
     color: var(--masthead-link-color);
     transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
   }
   .theme-toggle__button:focus {
     outline: 2px solid var(--masthead-link-color);
@@ -90,6 +97,13 @@
   .theme-toggle__icon--moon { opacity: 0; }
   [data-theme="dark"] .theme-toggle__icon--sun { opacity: 0; }
   [data-theme="dark"] .theme-toggle__icon--moon { opacity: 1; }
+  
+  /* Mobile responsive adjustments */
+  @media (max-width: 768px) {
+    .theme-toggle {
+      margin-right: 2.5rem;
+    }
+  }
   .skip-link {
     position: absolute;
     top: -40px;
