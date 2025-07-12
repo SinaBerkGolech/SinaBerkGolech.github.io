@@ -6,7 +6,7 @@ author_profile: true
 
 <div class="about-grid">
   <div class="about-left">
-    <img src="/images/bio-photo.jpg" alt="Sina Berk Golech" class="about-photo" />
+    <img src="/images/108686358.jpeg" alt="Sina Berk Golech" class="about-photo" />
     <h2>Sina Berk Golech</h2>
     <p class="about-title">Bioinformatics M.Sc. Student<br>Saarland University</p>
     <p class="about-location"><i class="fas fa-map-marker-alt"></i> Saarbrücken, Germany</p>
