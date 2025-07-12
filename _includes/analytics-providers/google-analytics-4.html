@@ -1,8 +1,146 @@
-<script async src="https://www.googletagmanager.com/gtag/js?id={{site.analytics.google.tracking_id}}"></script>
+<!-- Google Analytics 4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-98N87FR04K"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
-  gtag('config', '{{site.analytics.google.tracking_id}}');
+  // Check for cookie consent
+  function hasConsent() {
+    return localStorage.getItem('analytics-consent') === 'true';
+  }
+
+  // Only load analytics if consent is given
+  if (hasConsent()) {
+    // Configure Google Analytics 4 with your tracking ID
+    gtag('config', 'G-98N87FR04K', {
+      // Academic website customizations
+      page_title: document.title,
+      page_location: window.location.href,
+      custom_map: {
+        'custom_parameter_1': 'research_area',
+        'custom_parameter_2': 'publication_type',
+        'custom_parameter_3': 'project_category'
+      }
+    });
+
+    // Track academic-specific events
+    document.addEventListener('DOMContentLoaded', function() {
+      // Track publication downloads
+      const publicationLinks = document.querySelectorAll('a[href*=".pdf"], a[href*="paper"], a[href*="publication"]');
+      publicationLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'download', {
+            'event_category': 'publication',
+            'event_label': this.href,
+            'value': 1
+          });
+        });
+      });
+
+      // Track project repository visits
+      const projectLinks = document.querySelectorAll('a[href*="github.com"], a[href*="gitlab.com"]');
+      projectLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'project',
+            'event_label': this.href,
+            'value': 1
+          });
+        });
+      });
+
+      // Track CV downloads
+      const cvLinks = document.querySelectorAll('a[href*="CV"], a[href*="Resume"]');
+      cvLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'download', {
+            'event_category': 'cv',
+            'event_label': this.href,
+            'value': 1
+          });
+        });
+      });
+
+      // Track theme toggle usage
+      const themeToggle = document.getElementById('theme-toggle');
+      if (themeToggle) {
+        themeToggle.addEventListener('click', function() {
+          const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+          gtag('event', 'theme_toggle', {
+            'event_category': 'ui',
+            'event_label': currentTheme === 'dark' ? 'light' : 'dark',
+            'value': 1
+          });
+        });
+      }
+
+      // Track academic social media clicks
+      const academicLinks = document.querySelectorAll('a[href*="scholar.google.com"], a[href*="orcid.org"], a[href*="pubmed"]');
+      academicLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'academic_profile',
+            'event_label': this.href,
+            'value': 1
+          });
+        });
+      });
+
+      // Track research area interest
+      const researchLinks = document.querySelectorAll('a[href*="metabolomics"], a[href*="antimicrobial"], a[href*="computer-vision"]');
+      researchLinks.forEach(link => {
+        link.addEventListener('click', function() {
+          gtag('event', 'click', {
+            'event_category': 'research_interest',
+            'event_label': this.href,
+            'value': 1
+          });
+        });
+      });
+    });
+
+    // Track page views with enhanced parameters
+    gtag('event', 'page_view', {
+      'page_title': document.title,
+      'page_location': window.location.href,
+      'page_referrer': document.referrer
+    });
+  }
+</script>
+
+<!-- Cookie Consent Notice -->
+<div id="cookie-notice" style="display: none; position: fixed; bottom: 0; left: 0; right: 0; background: var(--bg-color); border-top: 1px solid var(--border-color); padding: 1rem; z-index: 1000; box-shadow: 0 -2px 10px rgba(0,0,0,0.1);">
+  <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+    <div style="flex: 1; min-width: 300px;">
+      <p style="margin: 0; color: var(--text-color); font-size: 0.9rem;">
+        This website uses Google Analytics to understand how visitors interact with the site. 
+        This helps improve the website and provide better user experience. 
+        <a href="/privacy-policy" style="color: var(--link-color);">Learn more</a>
+      </p>
+    </div>
+    <div style="display: flex; gap: 0.5rem;">
+      <button onclick="acceptAnalytics()" style="background: var(--link-color); color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">Accept</button>
+      <button onclick="declineAnalytics()" style="background: var(--border-color); color: var(--text-color); border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; font-size: 0.9rem;">Decline</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  // Show cookie notice if consent hasn't been given
+  if (!hasConsent() && !localStorage.getItem('analytics-declined')) {
+    document.getElementById('cookie-notice').style.display = 'block';
+  }
+
+  function acceptAnalytics() {
+    localStorage.setItem('analytics-consent', 'true');
+    document.getElementById('cookie-notice').style.display = 'none';
+    // Reload page to enable analytics
+    window.location.reload();
+  }
+
+  function declineAnalytics() {
+    localStorage.setItem('analytics-declined', 'true');
+    document.getElementById('cookie-notice').style.display = 'none';
+  }
 </script>
