@@ -18,7 +18,7 @@
   text-indent: initial; /* override*/
   background-color: mix(#fff, $notice-color, 90%);
   border-radius: $border-radius;
-  box-shadow: 0 1px 1px rgba($notice-color, 0.25);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
 
   h4 {
     margin-top: 0 !important; /* override*/
@@ -71,29 +71,29 @@
 /* Primary notice */
 
 .notice--primary {
-  @include notice($primary-color);
+  @include notice(#7a8288);
 }
 
 /* Info notice */
 
 .notice--info {
-  @include notice($info-color);
+  @include notice(#52adc8);
 }
 
 /* Warning notice */
 
 .notice--warning {
-  @include notice($warning-color);
+  @include notice(#f89406);
 }
 
 /* Success notice */
 
 .notice--success {
-  @include notice($success-color);
+  @include notice(#62c462);
 }
 
 /* Danger notice */
 
 .notice--danger {
-  @include notice($danger-color);
+  @include notice(#ee5f5b);
 }

@@ -71,7 +71,7 @@
     background-color: $info-color;
 
     &:hover {
-      background-color: mix(#000, $info-color, 20%);
+      background-color: mix(#000, #52adc8, 20%);
     }
   }
 
@@ -81,7 +81,7 @@
     background-color: $warning-color;
 
     &:hover {
-      background-color: mix(#000, $warning-color, 20%);
+      background-color: mix(#000, #f89406, 20%);
     }
   }
 
@@ -91,7 +91,7 @@
     background-color: $success-color;
 
     &:hover {
-      background-color: mix(#000, $success-color, 20%);
+      background-color: mix(#000, #62c462, 20%);
     }
   }
 
@@ -101,7 +101,7 @@
     background-color: $danger-color;
 
     &:hover {
-      background-color: mix(#000, $danger-color, 20%);
+      background-color: mix(#000, #ee5f5b, 20%);
     }
   }
 
