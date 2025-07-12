@@ -8,9 +8,15 @@ main:
   - title: "Publications"
     url: /publications/
 
+  - title: "Research Projects"
+    url: /projects/    
+
+  - title: "Skills"
+    url: /skills/    
+    
   - title: "Talks"
     url: /talks/    
-
+    
   - title: "Teaching"
     url: /teaching/    
     

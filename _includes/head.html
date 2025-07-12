@@ -9,13 +9,110 @@
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
 <meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="theme-color" content="#52adc8" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#1a1a1a" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+<meta name="msapplication-TileColor" content="#52adc8">
+<meta name="msapplication-config" content="{{ base_path }}/images/browserconfig.xml">
 
 <script>
   document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
 </script>
 
-<!-- For all browsers -->
-<link rel="stylesheet" href="{{ base_path }}/assets/css/main.css">
+<!-- Skip to main content link for accessibility -->
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<!-- Inline critical CSS for above-the-fold content -->
+<style>
+  :root {
+    --bg-color: #fff;
+    --text-color: #515151;
+    --masthead-bg-color: #fff;
+    --masthead-text-color: #515151;
+    --masthead-link-color: #7a8288;
+    --masthead-link-color-hover: #5a6268;
+    --border-color: #e9e9e9;
+  }
+  [data-theme="dark"] {
+    --bg-color: #1a1a1a;
+    --text-color: #e0e0e0;
+    --masthead-bg-color: #2d2d2d;
+    --masthead-text-color: #e0e0e0;
+    --masthead-link-color: #b0b0b0;
+    --masthead-link-color-hover: #ffffff;
+    --border-color: #404040;
+  }
+  body {
+    background: var(--bg-color);
+    color: var(--text-color);
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  }
+  .masthead {
+    background: var(--masthead-bg-color);
+    color: var(--masthead-text-color);
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+    z-index: 100;
+  }
+  .masthead__menu {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+  }
+  .theme-toggle {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+  }
+  .theme-toggle__button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    color: var(--masthead-link-color);
+    transition: background 0.2s, color 0.2s;
+  }
+  .theme-toggle__button:focus {
+    outline: 2px solid var(--masthead-link-color);
+    outline-offset: 2px;
+  }
+  .theme-toggle__icon {
+    display: block;
+    transition: all 0.3s;
+  }
+  .theme-toggle__icon--sun { opacity: 1; }
+  .theme-toggle__icon--moon { opacity: 0; }
+  [data-theme="dark"] .theme-toggle__icon--sun { opacity: 0; }
+  [data-theme="dark"] .theme-toggle__icon--moon { opacity: 1; }
+  .skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--masthead-link-color);
+    color: white;
+    padding: 8px;
+    text-decoration: none;
+    border-radius: 4px;
+    z-index: 1000;
+    transition: top 0.3s;
+  }
+  .skip-link:focus {
+    top: 6px;
+  }
+</style>
+
+<!-- Preload critical CSS -->
+<link rel="preload" href="{{ base_path }}/assets/css/main.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+<noscript><link rel="stylesheet" href="{{ base_path }}/assets/css/main.css"></noscript>
+
+<!-- Preload fonts for better performance -->
+<link rel="preload" href="{{ base_path }}/assets/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ base_path }}/assets/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin>
 
 <meta http-equiv="cleartype" content="on">

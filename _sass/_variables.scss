@@ -2,6 +2,60 @@
    Variables
    ========================================================================== */
 
+/* ==========================================================================
+   CSS Custom Properties for Theme Switching
+   ========================================================================== */
+
+:root {
+  /* Light theme (default) */
+  --bg-color: #fff;
+  --text-color: #515151;
+  --masthead-bg-color: #fff;
+  --masthead-text-color: #515151;
+  --masthead-link-color: #7a8288;
+  --masthead-link-color-hover: #5a6268;
+  --border-color: #e9e9e9;
+  --code-bg-color: #fafafa;
+  --sidebar-bg-color: #f8f9fa;
+  --link-color: #52adc8;
+  --link-color-hover: #3d8ba3;
+  --primary-color: #7a8288;
+  --success-color: #62c462;
+  --warning-color: #f89406;
+  --danger-color: #ee5f5b;
+  --info-color: #52adc8;
+  --gray: #7a8288;
+  --dark-gray: #515151;
+  --darker-gray: #2d3748;
+  --light-gray: #e9ecef;
+  --lighter-gray: #f8f9fa;
+}
+
+[data-theme="dark"] {
+  /* Dark theme */
+  --bg-color: #1a1a1a;
+  --text-color: #e0e0e0;
+  --masthead-bg-color: #2d2d2d;
+  --masthead-text-color: #e0e0e0;
+  --masthead-link-color: #b0b0b0;
+  --masthead-link-color-hover: #ffffff;
+  --border-color: #404040;
+  --code-bg-color: #2d2d2d;
+  --sidebar-bg-color: #2d2d2d;
+  --link-color: #66b3cc;
+  --link-color-hover: #8cc7d9;
+  --primary-color: #b0b0b0;
+  --success-color: #7dd87d;
+  --warning-color: #ffb366;
+  --danger-color: #ff8080;
+  --info-color: #66b3cc;
+  --gray: #b0b0b0;
+  --dark-gray: #e0e0e0;
+  --darker-gray: #ffffff;
+  --light-gray: #404040;
+  --lighter-gray: #2d2d2d;
+}
+
 /*
    Typography
    ========================================================================== */
@@ -61,18 +115,18 @@ $darker-gray                : mix(#000, $gray, 60%);
 $light-gray                 : mix(#fff, $gray, 50%);
 $lighter-gray               : mix(#fff, $gray, 90%);
 
-$body-color                 : #fff;
-$background-color           : #fff;
-$code-background-color      : #fafafa;
-$code-background-color-dark : $light-gray;
-$text-color                 : $dark-gray;
-$border-color               : $lighter-gray;
+$body-color                 : var(--bg-color);
+$background-color           : var(--bg-color);
+$code-background-color      : var(--code-bg-color);
+$code-background-color-dark : var(--light-gray);
+$text-color                 : var(--text-color);
+$border-color               : var(--border-color);
 
-$primary-color              : #7a8288;
-$success-color              : #62c462;
-$warning-color              : #f89406;
-$danger-color               : #ee5f5b;
-$info-color                 : #52adc8;
+$primary-color              : var(--primary-color);
+$success-color              : var(--success-color);
+$warning-color              : var(--warning-color);
+$danger-color               : var(--danger-color);
+$info-color                 : var(--info-color);
 
 /* brands */
 $behance-color              : #1769FF;
@@ -102,11 +156,11 @@ $xing-color                 : #006567;
 
 
 /* links */
-$link-color                 : $info-color;
-$link-color-hover           : mix(#000, $link-color, 25%);
-$link-color-visited         : mix(#fff, $link-color, 25%);
-$masthead-link-color        : $primary-color;
-$masthead-link-color-hover  : mix(#000, $primary-color, 25%);
+$link-color                 : var(--link-color);
+$link-color-hover           : var(--link-color-hover);
+$link-color-visited         : var(--link-color-hover);
+$masthead-link-color        : var(--masthead-link-color);
+$masthead-link-color-hover  : var(--masthead-link-color-hover);
 
 
 /*

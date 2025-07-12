@@ -7,10 +7,10 @@
 # server process.
 
 locale                   : "en-US"
-title                    : "Sina Berk Golech / Webpage"
-title_separator          : "-"
+title                    : "Sina Berk Golech - Bioinformatics Researcher"
+title_separator          : "|"
 name                     : &name "Sina Berk Golech"
-description              : &description "Web Page for SinaBerkGolech"
+description              : &description "Bioinformatics M.Sc. Student at Saarland University specializing in metabolomics, antimicrobial peptides, and computer vision. Research interests include machine learning, data analysis, and computational biology."
 url                      : https://sinaberkgolech.github.io
 baseurl                  : ""
 repository               : "SinaBerkGolech/SinaBerkGolech.github.io"
@@ -23,7 +23,7 @@ author:
   avatar           : "108686358.jpeg"
   name             : "Sina Berk Golech"
   pronouns         : "he/him"  
-  bio              : "Bioinformatics M.Sc. Student at Saarland University"
+  bio              : "Bioinformatics M.Sc. Student at Saarland University specializing in metabolomics, antimicrobial peptides, and computer vision. Passionate about machine learning, data analysis, and computational biology research."
   location         : "Saarbrücken, Germany"
   employer         : "Saarland University"
   uri              : "https://orcid.org/0000-0003-1443-1103"
@@ -72,6 +72,33 @@ author:
   youtube          : # Username
   zhihu            : # URL
 
+# Research Projects Configuration
+research_projects:
+  - name: "Metabolomics Seminar Topic 10"
+    description: "Advanced metabolomics analysis and computational methods"
+    url: "https://github.com/SinaBerkGolech/Metabolomics_Seminar_Topic_10"
+    tags: ["metabolomics", "data-analysis", "R", "statistics"]
+    featured: true
+    
+  - name: "IAMPGutMB"
+    description: "Antimicrobial peptides and gut microbiome analysis"
+    url: "https://github.com/SinaBerkGolech/IAMPGutMB"
+    tags: ["antimicrobial-peptides", "microbiome", "bioinformatics", "python"]
+    featured: true
+    
+  - name: "Turkish Image Captioning"
+    description: "Computer vision and natural language processing for Turkish language"
+    url: "https://github.com/SinaBerkGolech/TurkishImageCaptioning"
+    tags: ["computer-vision", "nlp", "deep-learning", "turkish"]
+    featured: true
+
+# Skills and Technologies
+skills:
+  programming_languages: ["Python", "R", "MATLAB", "JavaScript", "SQL"]
+  frameworks_libraries: ["TensorFlow", "PyTorch", "scikit-learn", "pandas", "numpy", "ggplot2"]
+  tools_platforms: ["Git", "Docker", "Jupyter", "RStudio", "Linux", "AWS"]
+  research_areas: ["Metabolomics", "Antimicrobial Peptides", "Computer Vision", "Machine Learning", "Bioinformatics"]
+
 # Publication Category - The following the list of publication categories and their headings
 publication_category:
   books:
@@ -80,6 +107,8 @@ publication_category:
     title: 'Journal Articles'    
   conferences:
     title: 'Conference Papers'
+  preprints:
+    title: 'Preprints'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/, .e.g. "500x300.png"
@@ -137,9 +166,13 @@ og_image                 :  # Open Graph/Twitter default site image
 # For specifying social profiles
 # - https://developers.google.com/structured-data/customize/social-profiles
 social:
-  type                   : # Person or Organization (defaults to Person)
-  name                   : # If the user or organization name differs from the site's name
+  type                   : Person
+  name                   : "Sina Berk Golech"
   links: # An array of links to social media profiles
+    - "https://github.com/SinaBerkGolech"
+    - "https://linkedin.com/in/sinaberkgolech"
+    - "https://orcid.org/0000-0003-1443-1103"
+    - "https://scholar.google.com/citations?user=7d9OWBMAAAAJ&hl=en"
 
 
 # Analytics
@@ -222,6 +255,9 @@ collections:
   talks:
     output: true
     permalink: /:collection/:path/
+  projects:
+    output: true
+    permalink: /:collection/:path/
 
 
 # These settings control how pages and collections are included in the site
@@ -279,6 +315,15 @@ defaults:
       layout: talk
       author_profile: true
       share: true
+  # _projects
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comments: true
 
 
 # Sass/SCSS
@@ -315,34 +360,11 @@ whitelist:
 #  Type
 #  - GitHub Pages compatible archive pages built with Liquid ~> type: liquid (default)
 #  - Jekyll Archives plugin archive pages ~> type: jekyll-archives
-#  Path (examples)
-#  - Archive page should exist at path when using Liquid method or you can
-#    expect broken links (especially with breadcrumbs enabled)
-#  - <base_path>/tags/my-awesome-tag/index.html ~> path: /tags/
-#  - <base_path/categories/my-awesome-category/index.html ~> path: /categories/
-#  - <base_path/my-awesome-category/index.html ~> path: /
-category_archive:
-  type: liquid
-  path: /categories/
-tag_archive:
-  type: liquid
-  path: /tags/
-# https://github.com/jekyll/jekyll-archives
-# jekyll-archives:
-#   enabled:
-#     - categories
-#     - tags
-#   layouts:
-#     category: archive-taxonomy
-#     tag: archive-taxonomy
-#   permalinks:
-#     category: /categories/:name/
-#     tag: /tags/:name/
+#  Defaulte to "liquid" if you install `jekyll-archives` gem to avoid conflicts.
 
-
-# HTML Compression
-# - http://jch.penibelst.de/
-compress_html:
-  clippings: all
-  ignore:
-    envs: development
+archive:
+  type: liquid
+  path: year-archive
+  layout: archive-taxonomy
+  permalink: /year-archive/
+  sort_order: desc

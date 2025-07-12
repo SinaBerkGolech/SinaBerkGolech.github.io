@@ -16,13 +16,14 @@
   <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
     {% if include.type == "grid" and teaser %}
       <div class="archive__item-teaser">
-        <img src=
-          {% if teaser contains "://" %}
-            "{{ teaser }}"
-          {% else %}
-            "{{ teaser | prepend: "/images/" | prepend: base_path }}"
-          {% endif %}
-          alt="">
+        <img 
+          src="{% if teaser contains "://" %}{{ teaser }}{% else %}{{ teaser | prepend: "/images/" | prepend: base_path }}{% endif %}"
+          data-src="{% if teaser contains "://" %}{{ teaser }}{% else %}{{ teaser | prepend: "/images/" | prepend: base_path }}{% endif %}"
+          class="lazy"
+          alt=""
+          srcset="{% if teaser contains ".jpg" or teaser contains ".jpeg" or teaser contains ".png" %}{{ teaser | replace: ".jpg", "-600.jpg 600w, " | replace: ".jpeg", "-600.jpeg 600w, " | replace: ".png", "-600.png 600w, " }}{% endif %}{{ teaser }} 1200w"
+          sizes="(max-width: 600px) 100vw, 600px"
+        >
       </div>
     {% endif %}
     <h2 class="archive__item-title" itemprop="headline">

@@ -1,0 +1,120 @@
+/* ==========================================================================
+   Theme Toggle Component
+   ========================================================================== */
+
+.theme-toggle {
+  display: flex;
+  align-items: center;
+  margin-left: 1rem;
+  
+  @media (max-width: $large) {
+    margin-left: 0.5rem;
+  }
+}
+
+.theme-toggle__button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: all 0.2s ease-in-out;
+  color: var(--masthead-link-color);
+  
+  &:hover {
+    background-color: var(--border-color);
+    color: var(--masthead-link-color-hover);
+  }
+  
+  &:focus {
+    outline: 2px solid var(--link-color);
+    outline-offset: 2px;
+  }
+}
+
+.theme-toggle__icon {
+  display: block;
+  transition: all 0.3s ease-in-out;
+  
+  &--sun {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+  
+  &--moon {
+    opacity: 0;
+    transform: rotate(-90deg);
+  }
+}
+
+[data-theme="dark"] .theme-toggle__icon {
+  &--sun {
+    opacity: 0;
+    transform: rotate(90deg);
+  }
+  
+  &--moon {
+    opacity: 1;
+    transform: rotate(0deg);
+  }
+}
+
+/* Smooth transitions for theme switching */
+body,
+.masthead,
+.page__content,
+.sidebar,
+.archive,
+.notice,
+.notice--primary,
+.notice--info,
+.notice--warning,
+.notice--success,
+.notice--danger,
+.page__meta,
+.page__share,
+.page__related,
+.author__avatar,
+.author__content,
+.author__urls,
+.author__urls-wrapper,
+.greedy-nav,
+.greedy-nav .visible-links,
+.greedy-nav .hidden-links,
+.archive__item,
+.archive__item-title,
+.archive__item-excerpt,
+.archive__item-teaser,
+.taxonomy__section,
+.taxonomy__title,
+.taxonomy__count,
+.taxonomy__index,
+.list__item,
+.list__item-title,
+.list__item-excerpt,
+.list__item-teaser,
+.list__item-date,
+.list__item-category,
+.list__item-tag,
+.list__item-category a,
+.list__item-tag a,
+.list__item-category a:hover,
+.list__item-tag a:hover,
+.list__item-category a:visited,
+.list__item-tag a:visited,
+.list__item-category a:focus,
+.list__item-tag a:focus,
+.list__item-category a:active,
+.list__item-tag a:active,
+.list__item-category a:link,
+.list__item-tag a:link,
+.list__item-category a:visited:hover,
+.list__item-tag a:visited:hover,
+.list__item-category a:visited:focus,
+.list__item-tag a:visited:focus,
+.list__item-category a:visited:active,
+.list__item-tag a:visited:active,
+.list__item-category a:visited:link,
+.list__item-tag a:visited:link {
+  transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out, border-color 0.3s ease-in-out;
+} 

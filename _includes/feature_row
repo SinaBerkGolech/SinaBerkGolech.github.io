@@ -20,13 +20,14 @@
       <div class="archive__item">
         {% if f.image_path %}
           <div class="archive__item-teaser">
-            <img src=
-              {% if f.image_path contains "://" %}
-                "{{ f.image_path }}"
-              {% else %}
-                "{{ f.image_path | prepend: "/images/" | prepend: base_path }}"
-              {% endif %}
-            alt="{% if f.alt %}{{ f.alt }}{% endif %}">
+            <img 
+              src="{% if f.image_path contains "://" %}{{ f.image_path }}{% else %}{{ f.image_path | prepend: "/images/" | prepend: base_path }}{% endif %}"
+              data-src="{% if f.image_path contains "://" %}{{ f.image_path }}{% else %}{{ f.image_path | prepend: "/images/" | prepend: base_path }}{% endif %}"
+              class="lazy"
+              alt="{% if f.alt %}{{ f.alt }}{% endif %}"
+              srcset="{% if f.image_path contains ".jpg" or f.image_path contains ".jpeg" or f.image_path contains ".png" %}{{ f.image_path | replace: ".jpg", "-600.jpg 600w, " | replace: ".jpeg", "-600.jpeg 600w, " | replace: ".png", "-600.png 600w, " }}{% endif %}{{ f.image_path }} 1200w"
+              sizes="(max-width: 600px) 100vw, 600px"
+            >
           </div>
         {% endif %}
 
